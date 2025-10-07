@@ -25,15 +25,17 @@ jobs:
     - name: Install MkDocs and dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r pyproject.toml --extra docs
-
+        pip install ".[docs]"
 
     - name: Build docs
       run: mkdocs build
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./site
-        publish_branch: gh-pages
+    - name: List output files
+      run: ls -lR .
+
+    # - name: Deploy to GitHub Pages
+    #   uses: peaceiris/actions-gh-pages@v4
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: ./site
+    #     publish_branch: gh-pages
