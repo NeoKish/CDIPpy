@@ -3,7 +3,7 @@ name: Publish Docs
 on:
   push:
     branches:
-      - main
+      - test-ci-issue
     paths:
       - 'docs/**'
       - 'mkdocs.yml'
